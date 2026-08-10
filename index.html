@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guftugu Cafe | Amity Lucknow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c2593f;
+            --primary-dark: #a3422a;
+            --accent: #e09f67;
+            --bg-cream: #fdfaf6;
+            --dark-text: #2b2523;
+            --card-bg: #ffffff;
+            --soft-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            --gold: #ffb400;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--dark-text);
+            color: #fff;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            background: rgba(253, 250, 246, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: #fff !important;
+            padding: 0.7rem 1.6rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(194, 89, 63, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('image_15.png') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 1.5rem;
+        }
+
+        .rating-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 650px;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Gallery Showcase */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-card p {
+            padding: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--dark-text);
+        }
+
+        /* Menu Styling */
+        .menu-bg {
+            background: #f7f2eb;
+        }
+
+        .menu-category {
+            color: var(--primary);
+            margin: 2.5rem 0 1.2rem 0;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            font-size: 1.4rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .menu-card h3 {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.05rem;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--soft-shadow);
+            border-left: 4px solid var(--primary);
+        }
+
+        .review-stars {
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .review-card p {
+            font-style: italic;
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--dark-text);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--soft-shadow);
+        }
+
+        .info-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .nav-links { display: none; }
+            .section { padding: 3rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        🌿 Open Daily • 12:00 PM – 11:00 PM • Average Cost: ₹1–200 per person
+    </div>
+
+    <nav>
+        <a href="#" class="logo">🌿 Guftugu Cafe</a>
+        <ul class="nav-links">
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#visit">Visit Us</a></li>
+            <li><a href="https://www.instagram.com/guftugu.lucknow/?hl=en" target="_blank" style="color: #e1306c;">📸 Instagram</a></li>
+        </ul>
+        <a href="tel:07307552475" class="btn">📞 Call Now</a>
+    </nav>
+
+    <header class="hero">
+        <div class="rating-badge">
+            ⭐ 4.9/5 Rating (163+ Google Reviews)
+        </div>
+        <h1>Where Conversations Brew</h1>
+        <p>A peaceful aesthetic spot near Amity University Lucknow. Greenery, fairy lights, handcrafted cold coffee, and delicious bites.</p>
+        <div class="hero-btns">
+            <a href="#menu" class="btn">Explore Menu</a>
+            <a href="#gallery" class="btn" style="background: transparent; border: 2px solid #fff;">View Vibe</a>
+        </div>
+    </header>
+
+    <section class="section" id="gallery">
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">The Guftugu Vibe</h2>
+        <p style="text-align: center; color: var(--gray); margin-bottom: 2.5rem; font-style: italic;">"Where every sip begins a story."</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="image_15.png" alt="Guftugu Entrance Archway">
+                <p>✨ Welcoming Entrance Arch</p>
+            </div>
+            <div class="gallery-card">
+                <img src="image_11.png" alt="Aesthetic Outdoor Fairy Lights">
+                <p>🌿 Cozy Garden Outdoor Ambiance</p>
+            </div>
+            <div class="gallery-card">
+                <img src="image_13.png" alt="Beautiful Cafe Interior Design">
+                <p>🏡 Rustic Inner Seating</p>
+            </div>
+            <div class="gallery-card">
+                <img src="image_14.png" alt="Delicious Guftugu Spring Rolls">
+                <p>🥢 Crispy Special Spring Rolls</p>
+            </div>
+            <div class="gallery-card">
+                <img src="image_12.png" alt="Hot Momos Platter">
+                <p>🥟 Piping Hot Momos</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section menu-bg" id="menu">
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">Guftugu Special Menu</h2>
+        <p style="text-align: center; color: var(--gray); margin-bottom: 2.5rem; font-style: italic;">Fresh handcrafted food and beverages.</p>
+
+        <h3 class="menu-category">☕ Cold Shakes & Coffee</h3>
+        <div class="menu-grid">
+            <div class="menu-card"><h3><span>Cold Coffee</span> <span>₹90</span></h3></div>
+            <div class="menu-card"><h3><span>Frappe</span> <span>₹120</span></h3></div>
+            <div class="menu-card"><h3><span>Kit Kat Shake</span> <span>₹99</span></h3></div>
+            <div class="menu-card"><h3><span>Oreo Shake</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Strawberry Shake</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Mocha Shake</span> <span>₹110</span></h3></div>
+            <div class="menu-card"><h3><span>Blue Berry Shake</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Orange Shake</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Kiwi Shake</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Mix Fruit Shake</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Rasmalai Sake</span> <span>₹130</span></h3></div>
+            <div class="menu-card"><h3><span>Iced Americano</span> <span>₹75</span></h3></div>
+            <div class="menu-card"><h3><span>Iced Mocha</span> <span>₹99</span></h3></div>
+            <div class="menu-card"><h3><span>Orange Expresso</span> <span>₹90</span></h3></div>
+        </div>
+
+        <h3 class="menu-category">🍹 Mojitos & Hot Beverages</h3>
+        <div class="menu-grid">
+            <div class="menu-card"><h3><span>Mint Mojito</span> <span>₹79</span></h3></div>
+            <div class="menu-card"><h3><span>Straw Berry Mojito</span> <span>₹89</span></h3></div>
+            <div class="menu-card"><h3><span>Blue Berry Mojito</span> <span>₹89</span></h3></div>
+            <div class="menu-card"><h3><span>Kulhad Chai</span> <span>₹25</span></h3></div>
+            <div class="menu-card"><h3><span>Lemon Tea</span> <span>₹25</span></h3></div>
+        </div>
+
+        <h3 class="menu-category">🍜 Pasta & Maggie</h3>
+        <div class="menu-grid">
+            <div class="menu-card"><h3><span>Red Sauce Pasta</span> <span>₹120</span></h3></div>
+            <div class="menu-card"><h3><span>White Sauce Pasta</span> <span>₹120</span></h3></div>
+            <div class="menu-card"><h3><span>Plain Maggie</span> <span>₹49</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Maggie</span> <span>₹69</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Masala Maggie</span> <span>₹75</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Cheese Maggie</span> <span>₹89</span></h3></div>
+            <div class="menu-card"><h3><span>Cheese Maggie</span> <span>₹69</span></h3></div>
+        </div>
+
+        <h3 class="menu-category">🍟 Fries, Noodles & Nachos</h3>
+        <div class="menu-grid">
+            <div class="menu-card"><h3><span>French Fries</span> <span>₹60</span></h3></div>
+            <div class="menu-card"><h3><span>Cheese French Fries</span> <span>₹89</span></h3></div>
+            <div class="menu-card"><h3><span>Peri Peri Fries</span> <span>₹89</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Noodles</span> <span>₹69</span></h3></div>
+            <div class="menu-card"><h3><span>Chilli Garlic Noodles</span> <span>₹130</span></h3></div>
+            <div class="menu-card"><h3><span>Singapuri Noodles</span> <span>₹130</span></h3></div>
+            <div class="menu-card"><h3><span>Schezwan Noodles</span> <span>₹130</span></h3></div>
+            <div class="menu-card"><h3><span>Tortilla Chips</span> <span>₹79</span></h3></div>
+            <div class="menu-card"><h3><span>Melted Cheese Nachos</span> <span>₹99</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Cheese Loaded Nachos</span> <span>₹110</span></h3></div>
+            <div class="menu-card"><h3><span>Nachos Salsa</span> <span>₹99</span></h3></div>
+        </div>
+
+        <h3 class="menu-category">🍚 Fried Rice & Chinese</h3>
+        <div class="menu-grid">
+            <div class="menu-card"><h3><span>Fried Rice</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Paneer Fried Rice</span> <span>₹130</span></h3></div>
+            <div class="menu-card"><h3><span>Schezwan Fried Rice</span> <span>₹130</span></h3></div>
+            <div class="menu-card"><h3><span>Crispy Chilli Corn</span> <span>₹110</span></h3></div>
+            <div class="menu-card"><h3><span>Chilli Potato</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Honey Chilli Potato</span> <span>₹110</span></h3></div>
+            <div class="menu-card"><h3><span>Spring Roll</span> <span>₹69</span></h3></div>
+            <div class="menu-card"><h3><span>Cream of Mushroom</span> <span>₹110</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Manchurian</span> <span>₹110</span></h3></div>
+            <div class="menu-card"><h3><span>Paneer Manchurian</span> <span>₹160</span></h3></div>
+            <div class="menu-card"><h3><span>Paneer Chilly</span> <span>₹160</span></h3></div>
+            <div class="menu-card"><h3><span>Pyaz Pakoda</span> <span>₹90</span></h3></div>
+        </div>
+
+        <h3 class="menu-category">🥪 Sandwiches & Soups</h3>
+        <div class="menu-grid">
+            <div class="menu-card"><h3><span>Veg Sandwich</span> <span>₹69</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Grilled Sandwich</span> <span>₹79</span></h3></div>
+            <div class="menu-card"><h3><span>Veg Cheese Sandwich</span> <span>₹90</span></h3></div>
+            <div class="menu-card"><h3><span>Tomato Soup</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Hot & Sour Soup</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Manchow Soup</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Sweet Corn Soup</span> <span>₹95</span></h3></div>
+            <div class="menu-card"><h3><span>Peking Soup</span> <span>₹95</span></h3></div>
+        </div>
+
+        <h3 class="menu-category">🥗 Fruit Salad</h3>
+        <div class="menu-grid">
+            <div class="menu-card"><h3><span>Ice Cream Fruit Salad</span> <span>₹119</span></h3></div>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 2.5rem;">Google Reviews (163+)</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Loved the aesthetic vibe at Guftugu Café! The outdoor lighting is stunning at night, perfect for clicking photos. Tried their cold coffee and pasta, both were delicious."</p>
+                <div class="review-author"><span>— Google Guest</span><span>★★★★★</span></div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Honestly, Guftugu Café feels like a little escape in the city. Greenery, quick service, and super reasonable student pricing near Amity University."</p>
+                <div class="review-author"><span>— Amity Student Review</span><span>★★★★★</span></div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Guftugu Café has such a calm and positive vibe. Fairy lights, cozy seating, hot momos... truly one of my new favorite hangout spots."</p>
+                <div class="review-author"><span>— Faizan Ahmad</span><span>★★★★★</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section menu-bg" id="visit">
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 2.5rem;">Visit Guftugu Cafe Today</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h4>📍 Location</h4>
+                <p>330A, Opp. AK Palace Inn,<br>Near Amity University Lucknow, Nijampur Malhaur, UP 226028</p>
+                <a href="https://www.google.com/maps/contrib/114185849163644464628/reviews" target="_blank" style="color: var(--primary); text-decoration: underline;">Open in Google Maps ➔</a>
+            </div>
+            <div class="info-item">
+                <h4>⏰ Operating Hours</h4>
+                <p>Monday – Sunday<br>12:00 PM – 11:00 PM</p>
+            </div>
+            <div class="info-item">
+                <h4>📞 Contact</h4>
+                <p>Phone: <a href="tel:07307552475" style="color: inherit;">073075 52475</a><br>
+                Instagram: <a href="https://www.instagram.com/guftugu.lucknow/?hl=en" target="_blank" style="color: var(--primary);">@guftugu.lucknow</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Guftugu Cafe • Crafted for Amity Lucknow Hangouts</p>
+        <p style="margin-top: 6px; font-size: 0.85rem;"><a href="https://www.instagram.com/guftugu.lucknow/?hl=en" target="_blank">Follow on Instagram @guftugu.lucknow</a></p>
+    </footer>
+
+</body>
+</html>
