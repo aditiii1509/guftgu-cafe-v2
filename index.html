@@ -143,7 +143,7 @@
       color: #333;
     }
 
-    /* --- FULL MENU STYLING --- */
+    /* Full Text Menu Grid */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -165,9 +165,6 @@
       border-bottom: 2px dashed var(--accent);
       padding-bottom: 8px;
       margin-bottom: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     .menu-item {
@@ -190,25 +187,6 @@
     .item-price {
       font-weight: bold;
       color: var(--highlight);
-    }
-
-    /* Menu Image Display Option */
-    .menu-images-toggle {
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    .menu-images-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .menu-images-grid img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     /* Location Section */
@@ -335,13 +313,10 @@
           <div class="menu-item"><span class="item-name">Mint Mojito</span><span class="item-price">₹79/-</span></div>
           <div class="menu-item"><span class="item-name">Strawberry Mojito</span><span class="item-price">₹89/-</span></div>
           <div class="menu-item"><span class="item-name">Blue Berry Mojito</span><span class="item-price">₹89/-</span></div>
-          
-          <h3 style="margin-top: 20px;">🌽 Nachos & Desserts</h3>
           <div class="menu-item"><span class="item-name">Tortilla Chips</span><span class="item-price">₹79/-</span></div>
-          <div class="menu-item"><span class="item-name">Melted Cheese</span><span class="item-price">₹99/-</span></div>
-          <div class="menu-item"><span class="item-name">Veg Cheese Loaded Salsa</span><span class="item-price">₹110/-</span></div>
-          <div class="menu-item"><span class="item-name">Extra Cheese Burst</span><span class="item-price">₹140/-</span></div>
-          <div class="menu-item"><span class="item-name">Fruit Salad</span><span class="item-price">₹99/-</span></div>
+          <div class="menu-item"><span class="item-name">Melted Cheese Nachos</span><span class="item-price">₹99/-</span></div>
+          <div class="menu-item"><span class="item-name">Veg Cheese Loaded Nachos</span><span class="item-price">₹110/-</span></div>
+          <div class="menu-item"><span class="item-name">Nachos Salsa</span><span class="item-price">₹99/-</span></div>
           <div class="menu-item"><span class="item-name">Ice Cream Fruit Salad</span><span class="item-price">₹119/-</span></div>
         </div>
 
@@ -356,8 +331,7 @@
           <div class="menu-item"><span class="item-name">Manchow Soup</span><span class="item-price">₹95/-</span></div>
           <div class="menu-item"><span class="item-name">Sweet Corn Soup</span><span class="item-price">₹95/-</span></div>
           <div class="menu-item"><span class="item-name">Peking Soup</span><span class="item-price">₹95/-</span></div>
-          <div class="menu-item"><span class="item-name">Tomato Soup</span><span class="item-price">₹110/-</span></div>
-          <div class="menu-item"><span class="item-name">Cream Of Mushroom</span><span class="item-price">₹110/-</span></div>
+          <div class="menu-item"><span class="item-name">Tomato Soup</span><span class="item-price">₹95/-</span></div>
         </div>
 
         <div class="menu-category">
@@ -369,10 +343,10 @@
           <div class="menu-item"><span class="item-name">Veg Masala Maggie</span><span class="item-price">₹75/-</span></div>
           <div class="menu-item"><span class="item-name">Veg Cheese Maggie</span><span class="item-price">₹89/-</span></div>
           <div class="menu-item"><span class="item-name">Cheese Maggie</span><span class="item-price">₹69/-</span></div>
-          <div class="menu-item"><span class="item-name">Chilli Potato</span><span class="item-price">₹90/-</span></div>
+          <div class="menu-item"><span class="item-name">Chilli Potato</span><span class="item-price">₹95/-</span></div>
           <div class="menu-item"><span class="item-name">Honey Chilli Potato</span><span class="item-price">₹110/-</span></div>
           <div class="menu-item"><span class="item-name">Spring Roll</span><span class="item-price">₹69/-</span></div>
-          <div class="menu-item"><span class="item-name">Veg Noodles</span><span class="item-price">₹95/-</span></div>
+          <div class="menu-item"><span class="item-name">Veg Noodles</span><span class="item-price">₹69/-</span></div>
           <div class="menu-item"><span class="item-name">Chilli Garlic Noodles</span><span class="item-price">₹130/-</span></div>
           <div class="menu-item"><span class="item-name">Singapuri Noodles</span><span class="item-price">₹130/-</span></div>
           <div class="menu-item"><span class="item-name">Schezwan Noodles</span><span class="item-price">₹130/-</span></div>
@@ -393,14 +367,6 @@
           <div class="menu-item"><span class="item-name">Pyaz Pakoda</span><span class="item-price">₹90/-</span></div>
         </div>
 
-      </div>
-
-      <div class="menu-images-toggle">
-        <p style="color: #666; font-style: italic;">Prefer viewing the original physical menu cards?</p>
-        <div class="menu-images-grid">
-          <img src="unnamed (5).webp" alt="Guftugu Physical Menu Card 1">
-          <img src="unnamed (6).webp" alt="Guftugu Physical Menu Card 2">
-        </div>
       </div>
     </section>
 
